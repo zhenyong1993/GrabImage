@@ -1,0 +1,2 @@
+C:\Program Files (x86)\MVS\Development\Samples\VC\VS\SimpleSamples\GrabImage\x64\Debug\GrabImage.exe
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\x64\Debug\GrabImage.exe

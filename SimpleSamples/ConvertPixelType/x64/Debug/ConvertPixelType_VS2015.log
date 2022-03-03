@@ -1,0 +1,6 @@
+﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  ConvertPixelType.cpp
+C:\Program Files (x86)\MVS\Development\Includes\MvCameraControl.h(815,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Development\Samples\VC\VS\SimpleSamples\ConvertPixelType\ConvertPixelType.cpp(208,17): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Development\Samples\VC\VS\SimpleSamples\ConvertPixelType\ConvertPixelType.cpp(215,17): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  ConvertPixelType_VS2015.vcxproj -> D:\Development\Samples\VC\VS\SimpleSamples\ConvertPixelType\x64\Debug\ConvertPixelType.exe

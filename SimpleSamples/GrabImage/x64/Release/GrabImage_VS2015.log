@@ -1,0 +1,17 @@
+﻿  GrabImage.cpp
+C:\Program Files (x86)\MVS\Development\Includes\MvCameraControl.h(815,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(31,21): warning C4477: “sprintf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 4 拥有了类型“time_t”
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(31,21): message : 请考虑在格式字符串中使用“%lld”
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(31,21): message : 请考虑在格式字符串中使用“%Id”
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(31,21): message : 请考虑在格式字符串中使用“%I64d”
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(31,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(33,5): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _mkdir. See online help for details.
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(49,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(260,17): warning C4473: “scanf_s”: 没有为格式字符串传递足够的参数
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(260,17): message : 占位符和其参数预计 2 可变参数，但提供的却是 1 参数
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(260,17): message : 缺失的可变参数 2 为格式字符串“%c”所需
+D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\GrabImage.cpp(260,17): message : 此参数用作缓冲区大小
+  正在生成代码
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  已完成代码的生成
+  GrabImage_VS2015.vcxproj -> D:\Development\Samples\VC\VS\SimpleSamples\GrabImage\x64\Release\GrabImage.exe

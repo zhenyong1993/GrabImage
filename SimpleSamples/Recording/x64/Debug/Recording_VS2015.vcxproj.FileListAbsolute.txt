@@ -1,0 +1,2 @@
+C:\Program Files (x86)\MVS\Development\Samples\VC\VS\SimpleSamples\Recording\x64\Debug\Recording.exe
+D:\Development\Samples\VC\VS\SimpleSamples\Recording\x64\Debug\Recording.exe

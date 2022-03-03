@@ -1,0 +1,2 @@
+C:\Program Files (x86)\MVS\Development\Samples\VC\VS\SimpleSamples\ParametrizeCamera_FileAccess\x64\Debug\ParametrizeCamera_FileAccess.exe
+D:\Development\Samples\VC\VS\SimpleSamples\ParametrizeCamera_FileAccess\x64\Debug\ParametrizeCamera_FileAccess.exe

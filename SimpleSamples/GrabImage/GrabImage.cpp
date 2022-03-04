@@ -7,6 +7,7 @@
 #include <string>
 #include <conio.h>
 #include <direct.h>
+#include <string.h>
 using namespace std;
 
 bool g_bExit = false;
@@ -42,9 +43,40 @@ int startShowPic()
     return 0;
 }
 
+int getProp(char* prop)
+{
+    char cmd[128] = {};
+    sprintf(cmd, "adb -s 192.168.51.203:5555 shell getprop %s", prop);
+    char buffer[128] = {};
+    FILE* pipe = _popen(cmd, "r");
+    if (!pipe)
+    {
+        return -1;
+    }
+    fgets(buffer, 128, pipe);
+    printf("buffer is %s\n", buffer);
+    int value = atoi(buffer);
+    return value;
+}
+
+int setProp(char* prop, int val)
+{
+    char cmd[128] = {};
+    sprintf(cmd, "adb -s 192.168.51.203:5555 shell setprop %s %d", prop, val);
+    FILE* pipe = _popen(cmd, "r");
+    if (!pipe)
+    {
+        printf("set error!\n");
+        return -1;
+    }
+    //WinExec(cmd, SW_HIDE);//async
+    return 0;
+}
+
 int stopShowPic()
 {
     WinExec("adb -s 192.168.51.203:5555 shell am force-stop com.roborock.showpic", SW_HIDE);
+    WinExec("adb -s 192.168.51.203:5555 shell setprop showpic 0", SW_HIDE);
     char cmd[128] = {};
     sprintf(cmd, "adb -s 192.168.51.203:5555 pull /sdcard/Android/data/com.roborock.sensordemo/cache/records %s/tofs", mytime);
     WinExec(cmd, SW_HIDE);
@@ -146,8 +178,23 @@ static  unsigned int __stdcall WorkThread(void* pUser)
     unsigned int m_nSaveImageBufSize = 0;
     MV_FRAME_OUT_INFO_EX    m_stImageInfo;
     int count = 0;
+    bool isFirstLoop = true;
     while(true)
     {
+        int val = getProp("showpic");
+ 
+            if (val != 1)
+            {
+                Sleep(500);
+                printf("[%d]set to 1\n", count);
+                setProp("showpic", 1);
+            }
+            else
+            {
+                //printf("sleep\n");
+                Sleep(50);
+                continue;
+            }
         if (m_pSaveImageBuf)
         {
             free(m_pSaveImageBuf);
@@ -199,9 +246,30 @@ static  unsigned int __stdcall WorkThread(void* pUser)
         if (count == 47)
         {
             stopShowPic();
+            /*destroy*/
+            nRet = MV_CC_StopGrabbing(pUser);
+            if (MV_OK != nRet)
+            {
+                printf("Stop Grabbing fail! nRet [0x%x]\n", nRet);
+            }
+
+            // ch:关闭设备 | Close device
+            nRet = MV_CC_CloseDevice(pUser);
+            if (MV_OK != nRet)
+            {
+                printf("ClosDevice fail! nRet [0x%x]\n", nRet);
+                break;
+            }
+
+            // ch:销毁句柄 | Destroy handle
+            nRet = MV_CC_DestroyHandle(pUser);
+            if (MV_OK != nRet)
+            {
+                printf("Destroy Handle fail! nRet [0x%x]\n", nRet);
+            }
             exit(0);
         }
-        Sleep(2030);
+        Sleep(500);
     }
 
     return 0;
@@ -210,6 +278,16 @@ static  unsigned int __stdcall WorkThread(void* pUser)
 int main()
 {
     getTime();
+    /*
+    while (1)
+    {
+    setProp("showpic", 1);
+    int ret = getProp("showpic");
+    printf("ret = %d\n", ret);
+    Sleep(500);
+    }
+    Sleep(100000);
+    */
     int nRet = MV_OK;
     void* handle = NULL;
 
